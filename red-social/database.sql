@@ -26,16 +26,16 @@ CREATE TABLE IF NOT EXISTS images(
     CONSTRAINT fk_images_users FOREIGN KEY(user_id) REFERENCES users(id)
 )ENGINE=InnoDb;
 
-CREATE TABLE IF NOT EXISTS coments(
+CREATE TABLE IF NOT EXISTS comments(
     id              int(255) auto_increment not null,
     user_id         int(255),
     image_id        int(255),
     content         text,
     created_at      datetime,
     updated_at      datetime,
-    CONSTRAINT pk_coments PRIMARY KEY(id),
-    CONSTRAINT fr_coments_users FOREIGN KEY(user_id) REFERENCES users(id),
-    CONSTRAINT fk_coments_images FOREIGN KEY(image_id) REFERENCES images(id)
+    CONSTRAINT pk_comments PRIMARY KEY(id),
+    CONSTRAINT fr_comments_users FOREIGN KEY(user_id) REFERENCES users(id),
+    CONSTRAINT fk_comments_images FOREIGN KEY(image_id) REFERENCES images(id)
 )ENGINE=InnoDb;
 
 CREATE TABLE IF NOT EXISTS likes(
