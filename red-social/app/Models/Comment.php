@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $table = 'comments';
+
+    //  Relación Many to One
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+    //  Relación Many to One
+    public function image()
+    {
+        return $this->belongsTo('App\Models\Image', 'image_id');
+    }
 }
